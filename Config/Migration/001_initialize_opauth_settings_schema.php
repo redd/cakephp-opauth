@@ -6,7 +6,7 @@ class InitializeOpauthSettingsSchema extends CakeMigration {
  *
  * @var string
  */
-	public $description = '';
+	public $description = 'Init Opauth settings tables';
 
 /**
  * Actions to be performed
@@ -22,8 +22,7 @@ class InitializeOpauthSettingsSchema extends CakeMigration {
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 					'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 					'indexes' => array(
-						'PRIMARY' => array('column' => 'id', 'unique' => 1),
-						'BY_OPAUTH_SETTING_ID' => array('column' => 'opauth_setting_id', 'unique' => 0)
+						'PRIMARY' => array('column' => 'id', 'unique' => 1)
 					),
 					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_unicode_ci', 'engine' => 'InnoDB')
 				),
@@ -35,7 +34,8 @@ class InitializeOpauthSettingsSchema extends CakeMigration {
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 					'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 					'indexes' => array(
-						'PRIMARY' => array('column' => 'id', 'unique' => 1)
+						'PRIMARY' => array('column' => 'id', 'unique' => 1),
+						'BY_OPAUTH_SETTING_ID' => array('column' => 'opauth_setting_id', 'unique' => 0)
 					),
 					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_unicode_ci', 'engine' => 'InnoDB')
 				)
