@@ -1,16 +1,16 @@
 <?php
 App::uses('AppModel', 'Model');
 
-class OpauthSetting extends AppModel {
+class Strategy extends AppModel {
 	public $actsAs = array(
 		'Expandable.Expandable' => array(
-			'with' => 'OpauthSettingExpand'
+			'with' => 'StrategyExpand'
 		)
 	);
 
 	public $hasMany = array(
-		'OpauthSettingExpand' => array(
-			'className' => 'Opauth.OpauthSettingExpand',
+		'StrategyExpand' => array(
+			'className' => 'Opauth.StrategyExpand',
 			'dependent' => true
 		)
 	);

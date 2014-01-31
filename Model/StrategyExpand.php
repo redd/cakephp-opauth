@@ -1,8 +1,8 @@
 <?php
 App::uses('AppModel', 'Model');
 
-class OpauthSettingExpand extends AppModel {
+class StrategyExpand extends AppModel {
 	public $belongsTo = array(
-		'Opauth.OpauthSetting'
+		'Opauth.Strategy'
 	);
 }
