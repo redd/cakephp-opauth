@@ -15,7 +15,7 @@ class OpauthController extends OpauthAppController {
  * @var array
  */
 	public $uses = array(
-		'Opauth.Strategy'
+		'Opauth.OpauthSetting'
 	);
 
 /**
@@ -76,14 +76,14 @@ class OpauthController extends OpauthAppController {
 		$this->Session->write($strategy, $auth);
 
 		// Writing into db for later use
-		$data = $this->Strategy->findByName($strategy);
+		$data = $this->OpauthSetting->findByName($strategy);
 		if ($data) {
-			$this->Strategy->id = $data['Strategy']['id'];
+			$this->OpauthSetting->id = $data['OpauthSetting']['id'];
 		} else {
-			$this->Strategy->create();
+			$this->OpauthSetting->create();
 		}
 		$auth['name'] = $strategy;
-		$this->Strategy->save($auth);
+		$this->OpauthSetting->save($auth);
 
 		// Redirect to strategy url
 		$redirect = Configure::read(sprintf('Opauth.Strategy.%s.redirect', $strategy));
@@ -109,9 +109,9 @@ class OpauthController extends OpauthAppController {
 		Cache::clear();
 
 		// Delete from db
-		$data = $this->Strategy->findByName($strategy);
+		$data = $this->OpauthSetting->findByName($strategy);
 		if ($data) {
-			$this->Strategy->delete($data['Strategy']['id']);
+			$this->OpauthSetting->delete($data['OpauthSetting']['id']);
 		}
 
 		// Redirect to strategy url
